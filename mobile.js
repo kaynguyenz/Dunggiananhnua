@@ -6,8 +6,6 @@ class Paper {
   touchStartY = 0;
   touchMoveX = 0;
   touchMoveY = 0;
-  touchEndX = 0;
-  touchEndY = 0;
   prevTouchX = 0;
   prevTouchY = 0;
   velX = 0;
@@ -30,7 +28,7 @@ class Paper {
         
       const dirX = e.touches[0].clientX - this.touchStartX;
       const dirY = e.touches[0].clientY - this.touchStartY;
-      const dirLength = Math.sqrt(dirX*dirX+dirY*dirY);
+      const dirLength = Math.sqrt(dirX*dirX + dirY*dirY);
       const dirNormalizedX = dirX / dirLength;
       const dirNormalizedY = dirY / dirLength;
 
@@ -67,15 +65,6 @@ class Paper {
     });
     paper.addEventListener('touchend', () => {
       this.holdingPaper = false;
-      this.rotating = false;
-    });
-
-    // For two-finger rotation on touch screens
-    paper.addEventListener('gesturestart', (e) => {
-      e.preventDefault();
-      this.rotating = true;
-    });
-    paper.addEventListener('gestureend', () => {
       this.rotating = false;
     });
   }
