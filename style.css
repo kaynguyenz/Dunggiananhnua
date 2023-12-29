@@ -24,6 +24,7 @@ body {
   position: absolute;
   z-index: 1;
   transition: z-index 0.3s;
+  touch-action: none;
 
   /* Các thuộc tính mới để căn giữa nội dung */
   display: flex;
